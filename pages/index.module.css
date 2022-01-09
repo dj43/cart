@@ -1,0 +1,22 @@
+.gridContainer{
+    display: grid;
+    grid-template-areas: "header"
+    "main"
+    "footer";
+    grid-template-rows: 5rem 1fr 5rem;
+    grid-template-columns: 1fr;
+    height: 100vh;
+}
+
+.header{
+    grid-area: header;
+    background-color: #203040;
+}
+
+.main{
+    grid-area: main;
+}
+.footer{
+    grid-area: footer;
+    background-color: #203040;
+}
