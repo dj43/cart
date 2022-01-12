@@ -7,16 +7,15 @@ import { PrimaryButton } from "./UI/PrimaryButton";
 
 interface ProductProps {
   products: ProductType[];
+  addItemToCart: any
 }
 
 export const Products: React.FC<ProductProps> = (props) => {
-  console.log(props.products);
-
   return (
     <div>
-      <ul className="flex flex-wrap justify-center items-center">
+      <ul className="flex flex-wrap justify-around justify-items-start items-center ">
         {props.products.map((product) => (
-          <li key={product._id} className="flex-[1_1_29rem] p-2 m-2">
+          <li key={product._id} className="p-2 m-2 flex-[1_1_29rem] max-w-lg	">
             <div className="flex flex-col justify-between h-max pb-5">
               <Image
                 width={440}
@@ -33,7 +32,9 @@ export const Products: React.FC<ProductProps> = (props) => {
             <div>
               <div className="flex justify-between items-center">
                 <div className="text-3xl ml-6"> { formatCurrency(product.price)}</div>
-                <PrimaryButton name="Add To Cart" />
+                <PrimaryButton onClick={() => 
+                  props.addItemToCart(product)
+                } name="Add To Cart" />
               </div>
             </div>
           </li>

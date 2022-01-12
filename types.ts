@@ -6,4 +6,5 @@ export type Product = {
     description: string;
     availableSizes: string[];
     price: number;
+    count?: number
 }

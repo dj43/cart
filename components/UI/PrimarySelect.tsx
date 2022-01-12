@@ -1,21 +1,23 @@
 import { DetailedHTMLProps, SelectHTMLAttributes } from "react";
 
-type PrimarySelectProps =DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>& {
+type PrimarySelectProps = DetailedHTMLProps<
+  SelectHTMLAttributes<HTMLSelectElement>,
+  HTMLSelectElement
+> & {
+  className?: string;
   options: any[];
 };
 
 export const PrimarySelect: React.FC<PrimarySelectProps> = ({
+  className = "",
   options,
   ...props
-  
 }) => {
-    console.log(options);
-
   return (
-      <div className="mb-3 w-52">
-        <select
+    <div className={"mb-3 w-52 " + className}>
+      <select
         {...props}
-          className="form-select appearance-none
+        className="form-select appearance-none
       block
       w-full
       px-3
@@ -30,13 +32,14 @@ export const PrimarySelect: React.FC<PrimarySelectProps> = ({
       ease-in-out
       m-0
       focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-          aria-label="Default select example"
-        >
-   
-          {options.map((option) => 
-            <option key={option} value={option}>{option}</option>
-          )}
-        </select>
-      </div>
+        aria-label="Default select example"
+      >
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}{" "}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 };
